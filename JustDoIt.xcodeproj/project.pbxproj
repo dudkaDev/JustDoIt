@@ -14,6 +14,8 @@
 		554F1225298A723400B6C52D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 554F1224298A723400B6C52D /* Assets.xcassets */; };
 		554F1228298A723400B6C52D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 554F1226298A723400B6C52D /* LaunchScreen.storyboard */; };
 		55CB0391298A9D7700F959A8 /* NewTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CB0390298A9D7700F959A8 /* NewTaskViewController.swift */; };
+		55CB0398298ABC9D00F959A8 /* JustDoIt.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 55CB0396298ABC9D00F959A8 /* JustDoIt.xcdatamodeld */; };
+		55CB039B298ABD8A00F959A8 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CB039A298ABD8A00F959A8 /* StorageManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		554F1227298A723400B6C52D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		554F1229298A723400B6C52D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		55CB0390298A9D7700F959A8 /* NewTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTaskViewController.swift; sourceTree = "<group>"; };
+		55CB0397298ABC9D00F959A8 /* JustDoIt.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = JustDoIt.xcdatamodel; sourceTree = "<group>"; };
+		55CB039A298ABD8A00F959A8 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,16 +62,58 @@
 		554F121A298A723200B6C52D /* JustDoIt */ = {
 			isa = PBXGroup;
 			children = (
-				554F121B298A723200B6C52D /* AppDelegate.swift */,
-				554F121D298A723200B6C52D /* SceneDelegate.swift */,
-				554F121F298A723200B6C52D /* TaskListViewController.swift */,
-				55CB0390298A9D7700F959A8 /* NewTaskViewController.swift */,
-				554F1221298A723200B6C52D /* Main.storyboard */,
+				55CB0394298ABBC700F959A8 /* App */,
+				55CB0395298ABC0900F959A8 /* Models */,
+				55CB0399298ABD5700F959A8 /* Services */,
+				55CB0392298ABB4400F959A8 /* ViewControllers */,
+				55CB0393298ABB8700F959A8 /* Storyboards */,
 				554F1224298A723400B6C52D /* Assets.xcassets */,
-				554F1226298A723400B6C52D /* LaunchScreen.storyboard */,
-				554F1229298A723400B6C52D /* Info.plist */,
 			);
 			path = JustDoIt;
+			sourceTree = "<group>";
+		};
+		55CB0392298ABB4400F959A8 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				554F121F298A723200B6C52D /* TaskListViewController.swift */,
+				55CB0390298A9D7700F959A8 /* NewTaskViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		55CB0393298ABB8700F959A8 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				554F1221298A723200B6C52D /* Main.storyboard */,
+				554F1226298A723400B6C52D /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		55CB0394298ABBC700F959A8 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				554F121B298A723200B6C52D /* AppDelegate.swift */,
+				554F121D298A723200B6C52D /* SceneDelegate.swift */,
+				554F1229298A723400B6C52D /* Info.plist */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		55CB0395298ABC0900F959A8 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				55CB0396298ABC9D00F959A8 /* JustDoIt.xcdatamodeld */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		55CB0399298ABD5700F959A8 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				55CB039A298ABD8A00F959A8 /* StorageManager.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -143,6 +189,8 @@
 			files = (
 				554F1220298A723200B6C52D /* TaskListViewController.swift in Sources */,
 				554F121C298A723200B6C52D /* AppDelegate.swift in Sources */,
+				55CB0398298ABC9D00F959A8 /* JustDoIt.xcdatamodeld in Sources */,
+				55CB039B298ABD8A00F959A8 /* StorageManager.swift in Sources */,
 				55CB0391298A9D7700F959A8 /* NewTaskViewController.swift in Sources */,
 				554F121E298A723200B6C52D /* SceneDelegate.swift in Sources */,
 			);
@@ -293,7 +341,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 4KRJ9XKH55;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = JustDoIt/Info.plist;
+				INFOPLIST_FILE = JustDoIt/App/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -325,7 +373,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 4KRJ9XKH55;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = JustDoIt/Info.plist;
+				INFOPLIST_FILE = JustDoIt/App/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -370,6 +418,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		55CB0396298ABC9D00F959A8 /* JustDoIt.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				55CB0397298ABC9D00F959A8 /* JustDoIt.xcdatamodel */,
+			);
+			currentVersion = 55CB0397298ABC9D00F959A8 /* JustDoIt.xcdatamodel */;
+			path = JustDoIt.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 554F1210298A723200B6C52D /* Project object */;
 }
