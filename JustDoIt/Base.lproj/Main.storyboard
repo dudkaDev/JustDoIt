@@ -43,6 +43,9 @@
                     <navigationItem key="navigationItem" title="Root View Controller" id="lS4-ke-dNK">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="WtH-j2-1hz">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <segue destination="d0X-Pm-9YD" kind="presentation" identifier="newTask" id="m5I-Nf-8x4"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                 </tableViewController>
@@ -50,16 +53,16 @@
             </objects>
             <point key="canvasLocation" x="300" y="-9"/>
         </scene>
-        <!--View Controller-->
+        <!--New Task View Controller-->
         <scene sceneID="ff1-ub-tnS">
             <objects>
-                <viewController id="d0X-Pm-9YD" sceneMemberID="viewController">
+                <viewController id="d0X-Pm-9YD" customClass="NewTaskViewController" customModule="JustDoIt" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="33g-N1-DK3">
-                        <rect key="frame" x="0.0" y="0.0" width="430" height="932"/>
+                        <rect key="frame" x="0.0" y="0.0" width="430" height="863"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="tdb-tA-vpH">
-                                <rect key="frame" x="16" y="79.000000000000028" width="398" height="372.66666666666674"/>
+                                <rect key="frame" x="16" y="79" width="398" height="345.33333333333331"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create Task" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q0D-Iu-XuC">
                                         <rect key="frame" x="0.0" y="0.0" width="92.333333333333329" height="25"/>
@@ -71,7 +74,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalHuggingPriority="245" text="New task..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="bXk-lL-ZCg">
-                                        <rect key="frame" x="0.0" y="33" width="240" height="339.66666666666669"/>
+                                        <rect key="frame" x="0.0" y="33" width="240" height="312.33333333333331"/>
                                         <color key="backgroundColor" red="0.94117647058823528" green="0.70980392156862748" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -84,7 +87,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="qfx-PB-QyM">
-                                <rect key="frame" x="16" y="823" width="398" height="75"/>
+                                <rect key="frame" x="16" y="788" width="398" height="75"/>
                                 <subviews>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Ah5-HP-ev6">
                                         <rect key="frame" x="0.0" y="0.0" width="398" height="32"/>
@@ -114,6 +117,9 @@
                                                         <integer key="value" value="8"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="cancelButtonPressed" destination="d0X-Pm-9YD" eventType="touchUpInside" id="Xk0-Bj-yt7"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="245" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T2c-fw-ioj">
                                                 <rect key="frame" x="78" y="0.0" width="320" height="36"/>
@@ -128,6 +134,9 @@
                                                         <integer key="value" value="8"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="doneButtonPressed" destination="d0X-Pm-9YD" eventType="touchUpInside" id="kIg-CT-Yjq"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -146,6 +155,12 @@
                             <constraint firstItem="tdb-tA-vpH" firstAttribute="height" secondItem="33g-N1-DK3" secondAttribute="height" multiplier="0.4" id="pIu-1u-6JI"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="bottomConstraint" destination="ThX-Ko-HWB" id="XV4-7E-fTJ"/>
+                        <outlet property="doneButton" destination="T2c-fw-ioj" id="vDl-rR-Bmc"/>
+                        <outlet property="prioritySegmentedControl" destination="Ah5-HP-ev6" id="WXd-h2-3oy"/>
+                        <outlet property="taskTextView" destination="bXk-lL-ZCg" id="asp-h8-7Sf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5wa-O8-fSw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

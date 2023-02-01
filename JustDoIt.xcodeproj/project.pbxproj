@@ -13,6 +13,7 @@
 		554F1223298A723200B6C52D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 554F1221298A723200B6C52D /* Main.storyboard */; };
 		554F1225298A723400B6C52D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 554F1224298A723400B6C52D /* Assets.xcassets */; };
 		554F1228298A723400B6C52D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 554F1226298A723400B6C52D /* LaunchScreen.storyboard */; };
+		55CB0391298A9D7700F959A8 /* NewTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CB0390298A9D7700F959A8 /* NewTaskViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		554F1224298A723400B6C52D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		554F1227298A723400B6C52D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		554F1229298A723400B6C52D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		55CB0390298A9D7700F959A8 /* NewTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTaskViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 				554F121B298A723200B6C52D /* AppDelegate.swift */,
 				554F121D298A723200B6C52D /* SceneDelegate.swift */,
 				554F121F298A723200B6C52D /* TaskListViewController.swift */,
+				55CB0390298A9D7700F959A8 /* NewTaskViewController.swift */,
 				554F1221298A723200B6C52D /* Main.storyboard */,
 				554F1224298A723400B6C52D /* Assets.xcassets */,
 				554F1226298A723400B6C52D /* LaunchScreen.storyboard */,
@@ -140,6 +143,7 @@
 			files = (
 				554F1220298A723200B6C52D /* TaskListViewController.swift in Sources */,
 				554F121C298A723200B6C52D /* AppDelegate.swift in Sources */,
+				55CB0391298A9D7700F959A8 /* NewTaskViewController.swift in Sources */,
 				554F121E298A723200B6C52D /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
