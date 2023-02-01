@@ -19,7 +19,6 @@ class NewTaskViewController: UIViewController {
         setupTextView()
         doneButton.isHidden = true
         
-        //Наблюдатель для вызова метода поднятия экрана при появлении клавиатуры
         NotificationCenter.default.addObserver(
             self,
             selector: #selector(keyboardWillShow),
@@ -29,6 +28,9 @@ class NewTaskViewController: UIViewController {
     }
     
     @IBAction func doneButtonPressed() {
+        guard let title = taskTextView.text, !title.isEmpty else { return }
+        let priority = Int16(prioritySegmentedControl.selectedSegmentIndex)
+        StorageManager.shared.saveTask(withTitle: title, andPriority: priority)
         dismiss(animated: true)
     }
     
