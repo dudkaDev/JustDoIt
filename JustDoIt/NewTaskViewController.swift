@@ -16,8 +16,16 @@ class NewTaskViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupTextView()
         doneButton.isHidden = true
         
+        //Наблюдатель для вызова метода поднятия экрана при появлении клавиатуры
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(keyboardWillShow),
+            name: UIResponder.keyboardWillShowNotification,
+            object: nil
+        )
     }
     
     @IBAction func doneButtonPressed() {
@@ -26,5 +34,24 @@ class NewTaskViewController: UIViewController {
     
     @IBAction func cancelButtonPressed() {
         dismiss(animated: true)
+    }
+}
+
+//MARK: - Private Methods
+extension NewTaskViewController {
+    @objc private func keyboardWillShow(with notification: Notification) {
+        let key = UIResponder.keyboardFrameEndUserInfoKey
+        
+        guard let keyboardFrame = notification.userInfo?[key] as? CGRect else { return }
+        bottomConstraint.constant = keyboardFrame.height
+        
+        UIView.animate(withDuration: 0.3) {
+            self.view.layoutIfNeeded()
+        }
+    }
+    
+    private func setupTextView() {
+        taskTextView.becomeFirstResponder()
+        taskTextView.textColor = .white
     }
 }
