@@ -55,3 +55,17 @@ extension NewTaskViewController {
         taskTextView.textColor = .white
     }
 }
+
+//MARK: - Text view delegate
+extension NewTaskViewController: UITextViewDelegate {
+    func textViewDidChangeSelection(_ textView: UITextView) {
+        if doneButton.isHidden {
+            textView.text.removeAll()
+            doneButton.isHidden = false
+            
+            UIView.animate(withDuration: 0.3) {
+                self.view.layoutIfNeeded()
+            }
+        }
+    }
+}
