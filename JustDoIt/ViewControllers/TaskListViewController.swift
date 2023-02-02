@@ -6,12 +6,14 @@
 //
 
 import UIKit
+import CoreData
 
 class TaskListViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
         fetchTasks()
+        fetchedResultsController.delegate = self
     }
     
     private func setupNavigationBar() {
@@ -84,3 +86,38 @@ extension TaskListViewController {
     }
 }
 
+//MARK: - NSFetchResultsControllerDelegate
+extension TaskListViewController: NSFetchedResultsControllerDelegate {
+    func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        tableView.beginUpdates()
+    }
+    
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+        switch type {
+        case .insert:
+            guard let newIndexPath else { return }
+            tableView.insertRows(at: [newIndexPath], with: .automatic)
+        case .delete:
+            guard let indexPath = indexPath else { return }
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+        default: break
+        }
+    }
+    
+    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        tableView.endUpdates()
+    }
+}
+
+//MARK: - Table View Delegate
+extension TaskListViewController {
+    override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { _, _, _ in
+            if let task = self.fetchedResultsController.object(at: indexPath) as? Task {
+                StorageManager.shared.delete(task: task)
+            }
+        }
+        deleteAction.image = UIImage(systemName: "trash")
+        return UISwipeActionsConfiguration(actions: [deleteAction])
+    }
+}

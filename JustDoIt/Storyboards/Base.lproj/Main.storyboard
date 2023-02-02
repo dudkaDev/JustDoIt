@@ -33,6 +33,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="d0X-Pm-9YD" kind="presentation" identifier="editTask" id="Iha-Oe-9g8"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -183,6 +186,9 @@
             <point key="canvasLocation" x="-607" y="-9"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="Iha-Oe-9g8"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

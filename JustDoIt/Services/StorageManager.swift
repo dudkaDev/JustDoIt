@@ -61,5 +61,16 @@ class StorageManager {
         task.date = Date()
         saveContext()
     }
+    
+    func delete(task: Task) {
+        viewContext.delete(task)
+        saveContext()
+    }
+    
+    func edit(task: Task, with newTitle: String, and priority: Int16) {
+        task.title = newTitle
+        task.priority = priority
+        saveContext()
+    }
 }
 
