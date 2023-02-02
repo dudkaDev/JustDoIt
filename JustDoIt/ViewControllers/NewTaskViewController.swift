@@ -58,6 +58,7 @@ extension NewTaskViewController {
     }
     
     private func setupTextView() {
+        taskTextView.textColor = .white
         taskTextView.becomeFirstResponder()
         if let task = task {
             taskTextView.text = task.title

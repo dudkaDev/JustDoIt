@@ -64,11 +64,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="430" height="863"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="tdb-tA-vpH">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="tdb-tA-vpH">
                                 <rect key="frame" x="16" y="79" width="398" height="345.33333333333331"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create Task" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q0D-Iu-XuC">
-                                        <rect key="frame" x="0.0" y="0.0" width="92.333333333333329" height="25"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="398" height="25"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="25" id="uce-V1-XBT"/>
                                         </constraints>
@@ -77,8 +77,8 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalHuggingPriority="245" text="New task..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="bXk-lL-ZCg">
-                                        <rect key="frame" x="0.0" y="33" width="240" height="312.33333333333331"/>
-                                        <color key="backgroundColor" red="0.94117647058823528" green="0.70980392156862748" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <rect key="frame" x="0.0" y="33" width="398" height="312.33333333333331"/>
+                                        <color key="backgroundColor" red="0.96470588235294119" green="0.80392156862745101" blue="0.60784313725490191" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="23"/>
@@ -147,7 +147,7 @@
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="yZ9-kZ-dRy"/>
-                        <color key="backgroundColor" red="0.94117647058823528" green="0.70980392156862748" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.96470588235294119" green="0.80392156862745101" blue="0.60784313725490191" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="tdb-tA-vpH" firstAttribute="top" secondItem="yZ9-kZ-dRy" secondAttribute="top" constant="20" id="9sg-yx-srz"/>
                             <constraint firstItem="tdb-tA-vpH" firstAttribute="leading" secondItem="yZ9-kZ-dRy" secondAttribute="leading" constant="16" id="Dd2-O8-oZj"/>

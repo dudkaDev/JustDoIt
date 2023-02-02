@@ -10,9 +10,15 @@ import CoreData
 
 class TaskListViewController: UITableViewController {
     
+    private var getFetchedResultsController = StorageManager.shared.fetchedResultsController(
+        entityName: "Task",
+        keyForSort: ["isComplete", "date"]
+    )
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         fetchTasks()
+        setupNavigationBar()
         getFetchedResultsController.delegate = self
     }
     
@@ -43,11 +49,6 @@ class TaskListViewController: UITableViewController {
         navigationController?.navigationBar.standardAppearance = navBarAppearance
         navigationController?.navigationBar.scrollEdgeAppearance = navBarAppearance
     }
-
-    private var getFetchedResultsController = StorageManager.shared.fetchedResultsController(
-        entityName: "Task",
-        keyForSort: ["isComplete", "date"]
-    )
     
     private func fetchTasks() {
         do {
@@ -104,6 +105,13 @@ extension TaskListViewController: NSFetchedResultsControllerDelegate {
         case .update:
             guard let indexPath = indexPath else { return }
             tableView.reloadRows(at: [indexPath], with: .automatic)
+        case .move:
+            guard let indexPath = indexPath else { return }
+            guard let newIndexPath = newIndexPath else { return }
+            let cell = tableView.cellForRow(at: indexPath)
+            let task = getTask(at: newIndexPath)
+            cell?.contentConfiguration = setContentForCell(with: task)
+            tableView.moveRow(at: indexPath, to: newIndexPath)
         default: break
         }
     }
@@ -150,7 +158,10 @@ extension TaskListViewController {
         
         return UISwipeActionsConfiguration(actions: [doneAction])
     }
-    
+}
+
+//MARK: - Private Methods
+extension TaskListViewController {
     private func strikeThrough(string: String, _ isStrikeThrough: Bool) -> NSAttributedString {
         isStrikeThrough
         ? NSAttributedString(
@@ -161,5 +172,12 @@ extension TaskListViewController {
             string: string,
             attributes: [NSAttributedString.Key.strikethroughStyle : 0]
         )
+    }
+    
+    private func getTask( at indexPath: IndexPath?) -> Task? {
+        if let indexPath = indexPath {
+            return getFetchedResultsController.object(at: indexPath) as? Task
+        }
+        return nil
     }
 }

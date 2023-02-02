@@ -43,6 +43,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5545D3CF298BCF00008C7583 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				554F1224298A723400B6C52D /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		554F120F298A723200B6C52D = {
 			isa = PBXGroup;
 			children = (
@@ -67,7 +75,7 @@
 				55CB0399298ABD5700F959A8 /* Services */,
 				55CB0392298ABB4400F959A8 /* ViewControllers */,
 				55CB0393298ABB8700F959A8 /* Storyboards */,
-				554F1224298A723400B6C52D /* Assets.xcassets */,
+				5545D3CF298BCF00008C7583 /* Resources */,
 			);
 			path = JustDoIt;
 			sourceTree = "<group>";

@@ -18,7 +18,7 @@ class StorageManager {
                 fatalError("Unresolved error \(error), \(error.userInfo)")
             }
         })
-                return container
+        return container
     }()
     
     private var viewContext: NSManagedObjectContext {
@@ -27,18 +27,6 @@ class StorageManager {
     
     private init() {}
     
-    //MARK: - Core Data Saving support
-    func saveContext() {
-        if viewContext.hasChanges {
-            do {
-                try viewContext.save()
-            } catch {
-                let nserror = error as NSError
-                fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
-            }
-        }
-    }
-
     func fetchedResultsController(entityName: String, keyForSort: [String]) -> NSFetchedResultsController <NSFetchRequestResult> {
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: entityName)
         var sortDescriptors: [NSSortDescriptor] = []
@@ -81,5 +69,18 @@ class StorageManager {
         task.priority = priority
         saveContext()
     }
+    
+    //MARK: - Core Data Saving support
+    func saveContext() {
+        if viewContext.hasChanges {
+            do {
+                try viewContext.save()
+            } catch {
+                let nserror = error as NSError
+                fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
+            }
+        }
+    }
 }
+    
 
