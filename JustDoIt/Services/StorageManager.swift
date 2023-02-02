@@ -39,11 +39,14 @@ class StorageManager {
         }
     }
 
-    func getFetcherResultsController(entityName: String, keyForSort: String) -> NSFetchedResultsController <NSFetchRequestResult> {
+    func fetchedResultsController(entityName: String, keyForSort: [String]) -> NSFetchedResultsController <NSFetchRequestResult> {
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: entityName)
-        let sortDescriptor = NSSortDescriptor(key: keyForSort, ascending: true)
-        
-        fetchRequest.sortDescriptors = [sortDescriptor]
+        var sortDescriptors: [NSSortDescriptor] = []
+        keyForSort.forEach { keyForSort in
+            let sortDescriptor = NSSortDescriptor(key: keyForSort, ascending: true)
+            sortDescriptors.append(sortDescriptor)
+        }
+        fetchRequest.sortDescriptors = sortDescriptors
         
         let fetchResultsController = NSFetchedResultsController(
             fetchRequest: fetchRequest,
@@ -59,6 +62,12 @@ class StorageManager {
         task.title = title
         task.priority = priority
         task.date = Date()
+        task.isComplete = false
+        saveContext()
+    }
+    
+    func done(task: Task) {
+        task.isComplete.toggle()
         saveContext()
     }
     

@@ -59,7 +59,6 @@ extension NewTaskViewController {
     
     private func setupTextView() {
         taskTextView.becomeFirstResponder()
-        taskTextView.textColor = .white
         if let task = task {
             taskTextView.text = task.title
             prioritySegmentedControl.selectedSegmentIndex = Int(task.priority)
