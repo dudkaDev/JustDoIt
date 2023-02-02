@@ -100,6 +100,9 @@ extension TaskListViewController: NSFetchedResultsControllerDelegate {
         case .delete:
             guard let indexPath = indexPath else { return }
             tableView.deleteRows(at: [indexPath], with: .automatic)
+        case .update:
+            guard let indexPath = indexPath else { return }
+            tableView.reloadRows(at: [indexPath], with: .automatic)
         default: break
         }
     }
@@ -119,5 +122,18 @@ extension TaskListViewController {
         }
         deleteAction.image = UIImage(systemName: "trash")
         return UISwipeActionsConfiguration(actions: [deleteAction])
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        let task = fetchedResultsController.object(at: indexPath) as? Task
+        performSegue(withIdentifier: "editTask", sender: task)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "editTask" {
+            guard let newTaskVC = segue.destination as? NewTaskViewController else { return }
+            newTaskVC.task = sender as? Task
+        }
     }
 }
